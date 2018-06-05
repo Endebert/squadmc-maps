@@ -232,12 +232,12 @@ const MAPDATA = [
     ],
     extra: {
       scale: [1, 1, 1.35],
-      levels: [5437, 6251],
+      levels: [5437, 6846],
       minimap: [
         [-2016, -2016],
         [2016, 2016],
       ],
-      hDim: [1765, 1765],
+      hDim: [4033, 4033],
       lOrigin: [-2016, -2016],
     },
   },
@@ -487,10 +487,10 @@ function scale(bLevel, wLevel, zScale) {
   return (512 * levelRange * zScale) / 512;
 }
 
-function bounds(fCorner, sCorner, xScale, yScale) {
+function bounds(fCorner, sCorner) {
   const xM = Math.max(fCorner[0], sCorner[0]) - Math.min(fCorner[0], sCorner[0]);
   const yM = Math.max(fCorner[1], sCorner[1]) - Math.min(fCorner[1], sCorner[1]);
-  return [xM * xScale, yM * yScale];
+  return [xM, yM];
 }
 
 function extraInfo() {
@@ -498,19 +498,24 @@ function extraInfo() {
     const e = map.extra;
     if (e) {
       const mm = e.minimap;
-      const mmBounds = bounds(mm[0], mm[1], e.scale[0], e.scale[1]);
+      const mmBounds = bounds(mm[0], mm[1]);
 
       const xO = e.lOrigin[0] - Math.min(mm[0][0], mm[1][0]);
       const yO = e.lOrigin[1] - Math.min(mm[0][1], mm[1][1]);
 
       console.log(`${map.name}`);
-      console.log(`map dimensions:    [${mmBounds}]`);
-      console.log(`final scale:       ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
-      console.log(`orig heightmap:    ${e.hDim[0]}x${e.hDim[1]}`);
+      console.log(`map dimensions:      [${mmBounds}]`);
+      console.log(`final scale:         ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
+      console.log(`orig heightmap:      ${e.hDim[0]}x${e.hDim[1]}`);
 
-      console.log(`scale heightmap:   x:${e.scale[0]} y:${e.scale[1]}`);
-      console.log(`crop with offset:  ${xO}x${yO}`);
-      console.log(`set levels to:     ${e.levels[0]}<->${e.levels[1]}`);
+      // console.log(`scale heightmap:   x:${e.scale[0]} y:${e.scale[1]}`);
+      console.log(`scale heightmap to:  ${Math.round(e.hDim[0] * e.scale[0])}x${Math.round(e.hDim[1] * e.scale[1])}`);
+      console.log(`crop with offset:    ${xO}x${yO}`);
+      
+      if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1])
+        console.warn("scaled heightmap still too small!");
+      
+      console.log(`set levels to:       ${e.levels[0]}<->${e.levels[1]}`);
     } else {
       console.warn(`${map.name} has no extras!`);
     }
@@ -524,7 +529,7 @@ function generateJSON() {
     const e = map.extra;
     const mm = e.minimap;
 
-    map.bounds = bounds(mm[0], mm[1], e.scale[0], e.scale[1]);
+    map.bounds = bounds(mm[0], mm[1]);
     if (map.heightmap) {
       map.heightmap.scale = scale(e.levels[0], e.levels[1], e.scale[2]);
     }
