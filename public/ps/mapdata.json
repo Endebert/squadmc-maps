@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Driel",
+    "url": "/maps/driel/{z}_{x}_{y}.jpg",
+    "bounds": [4892, 4892]
+  },
+  {
+    "name": "Heelsum",
+    "url": "/maps/heelsum/{z}_{x}_{y}.jpg",
+    "bounds": [5611, 5611]
+  },
+  {
+    "name": "Oosterbeek",
+    "url": "/maps/johanna/{z}_{x}_{y}.jpg",
+    "bounds": [4508, 4508]
+  }
+]
