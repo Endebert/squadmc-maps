@@ -1,0 +1,10 @@
+{
+  "name": "squadmc-maps",
+  "description": "Repository holding the map files and data for SquadMC",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "mapdata": "node public/mapdata.js > public/mapdata.json",
+    "info": "node public/mapdata.js info"
+  }
+}
