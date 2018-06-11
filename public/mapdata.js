@@ -482,17 +482,38 @@ const MAPDATA = [
   },
 ];
 
+/**
+ * Calculates the final z-scaling of a heightmap,
+ * by taking the black and white levels used in gimp to optimize the heightmap,
+ * and the zScale of the UE4 landscape transform in meters from SquadSDK
+ * @param {number} bLevel - optimized black level from original heightmap
+ * @param {number} wLevel - optimized white level from original heightmap
+ * @param {number} zScale - original zScale of landscape transform in SquadSDK in meters
+ * @returns {number} final scaling
+ */
 function scale(bLevel, wLevel, zScale) {
   const levelRange = (wLevel - bLevel) / 10000;
   return (512 * levelRange * zScale) / 512;
 }
 
+/**
+ * Generates array with [x,y] dimensions of map, based on the minimap corner transforms from SquadSDK
+ * @param {Number[]} fCorner - [x,y] positon of north west corner of minimap in SquadSDK
+ * @param {Number[]} sCorner - [x,y] positon of south east corner of minimap in SquadSDK
+ * @returns {Number[]} - bounds array with lengths of x and y dimensions of map
+ */
 function bounds(fCorner, sCorner) {
+  // using min and max so that it doesn't matter which corners are used, as long as they are opposite to each other
   const xM = Math.max(fCorner[0], sCorner[0]) - Math.min(fCorner[0], sCorner[0]);
   const yM = Math.max(fCorner[1], sCorner[1]) - Math.min(fCorner[1], sCorner[1]);
   return [xM, yM];
 }
 
+/**
+ * Utility function to generate information needed to optimize heightmaps.
+ * Generates information about scaling and cropping heightmaps so that they match the minimap and map dimensions.
+ * Also calculates map dimensions.
+ */
 function extraInfo() {
   MAPDATA.forEach((map) => {
     const e = map.extra;
@@ -511,10 +532,10 @@ function extraInfo() {
       // console.log(`scale heightmap:   x:${e.scale[0]} y:${e.scale[1]}`);
       console.log(`scale heightmap to:  ${Math.round(e.hDim[0] * e.scale[0])}x${Math.round(e.hDim[1] * e.scale[1])}`);
       console.log(`crop with offset:    ${xO}x${yO}`);
-      
+
       if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1])
         console.warn("scaled heightmap still too small!");
-      
+
       console.log(`set levels to:       ${e.levels[0]}<->${e.levels[1]}`);
     } else {
       console.warn(`${map.name} has no extras!`);
@@ -523,20 +544,43 @@ function extraInfo() {
   });
 }
 
+/**
+ * Takes the MAPDATA object and fills it with necessary information calculated from the extras object for each map.
+ * Then it generates and saves a valid json object, that can later be retrieved by SquadMC
+ * to properly display the maps stored in this repository.
+ * See the npm run mapdata script to know where the json will be saved to.
+ */
 function generateJSON() {
   const obj = MAPDATA;
   obj.forEach((map) => {
     const e = map.extra;
-    const mm = e.minimap;
+    if (e) {
+      const mm = e.minimap;
 
-    map.bounds = bounds(mm[0], mm[1]);
-    if (map.heightmap) {
-      map.heightmap.scale = scale(e.levels[0], e.levels[1], e.scale[2]);
+      if (mm) {
+        map.bounds = bounds(mm[0], mm[1]);
+      } else {
+        throw new Error(`map ${map.name} has no minimap! Can't calculate bounds!`);
+      }
+
+      if (map.heightmap && e && e.levels && e.scale) {
+        map.heightmap.scale = scale(e.levels[0], e.levels[1], e.scale[2]);
+      } else {
+        console.info(`map ${map.name} has no heightmap, or is missing information in extras object: ${JSON.stringify(e, null, 2)}`);
+      }
+    } else {
+      console.warn(`map ${map.name} has no extras!`)
     }
+
   });
+
+  // raw printing the json object, will be piped by npm script into file
   process.stdout.write(JSON.stringify(obj));
 }
 
-// console.log("process args:", process.argv);
-
-if (process.argv.length > 2) { extraInfo(); } else { generateJSON(); }
+// based on args, either print info, or raw print json object
+if (process.argv.length > 2) {
+  extraInfo();
+} else {
+  generateJSON();
+}
