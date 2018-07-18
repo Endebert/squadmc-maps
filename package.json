@@ -6,8 +6,8 @@
   "scripts": {
     "mapdata": "node public/mapdata.js > public/mapdata.json",
     "info": "node public/mapdata.js info",
-    "serve": "npm run mapdata && http-server --cors -p 9090",
-    "release": "standard-version"
+    "release": "standard-version",
+    "serve": "npm run mapdata && http-server --cors -p 9090"
   },
   "standard-version": {
     "scripts": {
@@ -15,8 +15,8 @@
     }
   },
   "devDependencies": {
-    "http-server": "^0.11.1",
     "replace": "^1.0.0",
-    "standard-version": "^4.4.0"
+    "standard-version": "^4.4.0",
+    "http-server": "^0.11.1"
   }
 }
