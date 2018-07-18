@@ -6,3 +6,5 @@
 .idea
 *.iml
 /public/mapdata.json
+/node_modules/
+package-lock.json
