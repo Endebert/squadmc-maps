@@ -1,5 +1,15 @@
 [
   {
+    "name": "Arnhem Range",
+    "url": "/maps/arnhem/{z}_{x}_{y}.jpg",
+    "bounds": [749, 759]
+  },
+  {
+    "name": "Doorwerth",
+    "url": "/maps/doorwerth/{z}_{x}_{y}.jpg",
+    "bounds": [4036, 4036]
+  },
+  {
     "name": "Driel",
     "url": "/maps/driel/{z}_{x}_{y}.jpg",
     "bounds": [4915, 4892]
