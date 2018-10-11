@@ -480,6 +480,34 @@ const MAPDATA = [
       lOrigin: [-4064, -4064],
     },
   },
+
+  // v12 maps
+
+  {
+    name: "V12 Belaya",
+    url: "/maps/v12/belaya/{z}_{x}_{y}.jpg",
+    bounds: [3904, 3905]
+  },
+  {
+    name: "V12 Jensen's Range",
+    url: "/maps/v12/jensens/{z}_{x}_{y}.jpg",
+    bounds: [4007, 4007]
+  },
+  {
+    name: "V12 Kohat",
+    url: "/maps/v12/kohat/{z}_{x}_{y}.jpg",
+    bounds: [4017, 4017]
+  },
+  {
+    name: "V12 Tallil",
+    url: "/maps/v12/tallil/{z}_{x}_{y}.jpg",
+    bounds: [4682, 4682]
+  },
+  {
+    name: "V12 Yehorivka",
+    url: "/maps/v12/yehorivka/{z}_{x}_{y}.jpg",
+    bounds: [5000, 5000]
+  }
 ];
 
 /**
