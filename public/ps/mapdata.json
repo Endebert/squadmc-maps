@@ -7,7 +7,7 @@
   {
     "name": "Arnhem Lane 1",
     "url": "/maps/arnhemlane/{z}_{x}_{y}.jpg",
-    "bounds": [8128, 8128]
+    "bounds": [4000, 4000]
   },
   {
     "name": "Doorwerth",
