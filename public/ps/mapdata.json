@@ -28,5 +28,10 @@
     "name": "Oosterbeek",
     "url": "/maps/johanna/{z}_{x}_{y}.jpg",
     "bounds": [4525, 4508]
+  },
+  {
+    "name": "Velmolen",
+    "url": "/maps/velmolen/{z}_{x}_{y}.jpg",
+    "bounds": [2200, 2200]
   }
 ]
