@@ -499,6 +499,11 @@ const MAPDATA = [
     bounds: [4017, 4017]
   },
   {
+    name: "V12 Kokan",
+    url: "/maps/v12/kokan/{z}_{x}_{y}.jpg",
+    bounds: [2496, 2496]
+  },
+  {
     name: "V12 Tallil",
     url: "/maps/v12/tallil/{z}_{x}_{y}.jpg",
     bounds: [4682, 4682]
