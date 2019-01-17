@@ -30,6 +30,11 @@
     "bounds": [4525, 4508]
   },
   {
+    "name": "Veghel",
+    "url": "/maps/veghel/{z}_{x}_{y}.jpg",
+    "bounds": [3060, 3060]
+  },
+  {
     "name": "Velmolen",
     "url": "/maps/velmolen/{z}_{x}_{y}.jpg",
     "bounds": [2200, 2200]
