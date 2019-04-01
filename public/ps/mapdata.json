@@ -10,6 +10,11 @@
     "bounds": [4000, 4000]
   },
   {
+    "name": "Best",
+    "url": "/maps/best/{z}_{x}_{y}.jpg",
+    "bounds": [2000, 2000]
+  },
+  {
     "name": "Doorwerth",
     "url": "/maps/doorwerth/{z}_{x}_{y}.jpg",
     "bounds": [4036, 4036]
