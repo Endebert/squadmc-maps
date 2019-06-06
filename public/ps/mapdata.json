@@ -25,6 +25,11 @@
     "bounds": [4915, 4892]
   },
   {
+    "name": "Grave",
+    "url": "/maps/grave/{z}_{x}_{y}.jpg",
+    "bounds": [3060, 3060]
+  },
+  {
     "name": "Heelsum",
     "url": "/maps/heelsum/{z}_{x}_{y}.jpg",
     "bounds": [5611, 5611]
