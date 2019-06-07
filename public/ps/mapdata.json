@@ -2,7 +2,7 @@
   {
     "name": "Arnhem Range",
     "url": "/maps/arnhem/{z}_{x}_{y}.jpg",
-    "bounds": [749, 759]
+    "bounds": [756, 756]
   },
   {
     "name": "Arnhem Lane 1",
