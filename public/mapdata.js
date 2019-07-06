@@ -415,6 +415,25 @@ const MAPDATA = [
 
   },
   {
+    name: "Skorpo",
+    url: "/maps/skorpo/{z}_{x}_{y}.jpg",
+    // TODO: extras & heightmap
+    // heightmap: {
+    //   url: "/heightmaps/skorpo.jpg",
+    //   tile: "/heightmaps/skorpo/{z}_{x}_{y}.jpg",
+    // },
+    extra: {
+      scale: [1.2, 1.2, 3.5],
+      levels: [629, 6758],
+      minimap: [
+        [-3800, -3800],
+        [3800, 3800],
+      ],
+      hDim: [7367, 5081],
+      lOrigin: [-4810, -3950],
+    },
+  },
+  {
     name: "Sumari Bala",
     url: "/maps/sumari/{z}_{x}_{y}.jpg",
     heightmap: {
@@ -599,7 +618,7 @@ function generateJSON() {
       if (map.heightmap && e && e.levels && e.scale) {
         map.heightmap.scale = scale(e.levels[0], e.levels[1], e.scale[2]);
       } else {
-        console.info(`map ${map.name} has no heightmap, or is missing information in extras object: ${JSON.stringify(e, null, 2)}`);
+        console.warn(`map ${map.name} has no heightmap, or is missing information in extras object`);
       }
     } else {
       console.warn(`map ${map.name} has no extras!`)
