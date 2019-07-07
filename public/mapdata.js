@@ -417,11 +417,10 @@ const MAPDATA = [
   {
     name: "Skorpo",
     url: "/maps/skorpo/{z}_{x}_{y}.jpg",
-    // TODO: extras & heightmap
-    // heightmap: {
-    //   url: "/heightmaps/skorpo.jpg",
-    //   tile: "/heightmaps/skorpo/{z}_{x}_{y}.jpg",
-    // },
+    heightmap: {
+      url: "/heightmaps/skorpo.jpg",
+      tile: "/heightmaps/skorpo/{z}_{x}_{y}.jpg",
+    },
     extra: {
       scale: [1.2, 1.2, 3.5],
       levels: [629, 6758],
@@ -430,7 +429,7 @@ const MAPDATA = [
         [3800, 3800],
       ],
       hDim: [7367, 5081],
-      lOrigin: [-4810, -3950],
+      lOrigin: [-4300, -2413],
     },
   },
   {
@@ -577,18 +576,19 @@ function extraInfo() {
       const yO = e.lOrigin[1] - Math.min(mm[0][1], mm[1][1]);
 
       console.log(`${map.name}`);
-      console.log(`map dimensions:      [${mmBounds}]`);
-      console.log(`final scale:         ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
-      console.log(`orig heightmap:      ${e.hDim[0]}x${e.hDim[1]}`);
-
+      console.log(`    map dimensions: [${mmBounds}]`);
+      console.log(`       final scale: ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
+      console.log(`    orig heightmap: ${e.hDim[0]}x${e.hDim[1]}`);
       // console.log(`scale heightmap:   x:${e.scale[0]} y:${e.scale[1]}`);
-      console.log(`scale heightmap to:  ${Math.round(e.hDim[0] * e.scale[0])}x${Math.round(e.hDim[1] * e.scale[1])}`);
-      console.log(`crop with offset:    ${xO}x${yO}`);
+      console.log(`scale heightmap to: ${Math.round(e.hDim[0] * e.scale[0])}x${Math.round(e.hDim[1] * e.scale[1])}`);
+      console.log(`set canvas size to: ${mmBounds[0]}x${mmBounds[1]}`);
+      console.log(`       with offset: ${xO}x${yO}`);
+      console.log(`     set levels to: ${e.levels[0]} <-> ${e.levels[1]}`);
 
-      if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1])
+      if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1]) {
+        console.log(`${e.hDim[0] * e.scale[0]} < ${mmBounds[0]} || ${e.hDim[1] * e.scale[1]} < ${mmBounds[1]}`)
         console.warn("scaled heightmap still too small!");
-
-      console.log(`set levels to:       ${e.levels[0]}<->${e.levels[1]}`);
+      }
     } else {
       console.warn(`${map.name} has no extras!`);
     }
