@@ -576,7 +576,7 @@ function extraInfo() {
       const yO = e.lOrigin[1] - Math.min(mm[0][1], mm[1][1]);
 
       console.log(`${map.name}`);
-      console.log(`    map dimensions: [${mmBounds}]`);
+      console.log(`    map dimensions: [${mmBounds}], scale: [${e.scale}]`);
       console.log(`       final scale: ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
       console.log(`    orig heightmap: ${e.hDim[0]}x${e.hDim[1]}`);
       // console.log(`scale heightmap:   x:${e.scale[0]} y:${e.scale[1]}`);
@@ -586,7 +586,7 @@ function extraInfo() {
       console.log(`     set levels to: ${e.levels[0]} <-> ${e.levels[1]}`);
 
       if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1]) {
-        console.log(`${e.hDim[0] * e.scale[0]} < ${mmBounds[0]} || ${e.hDim[1] * e.scale[1]} < ${mmBounds[1]}`)
+        // console.log(`${e.hDim[0] * e.scale[0]} < ${mmBounds[0]} || ${e.hDim[1] * e.scale[1]} < ${mmBounds[1]}`)
         console.warn("scaled heightmap still too small!");
       }
     } else {
