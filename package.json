@@ -7,7 +7,7 @@
     "mapdata": "node public/mapdata.js > public/mapdata.json",
     "info": "node public/mapdata.js info",
     "release": "standard-version",
-    "serve": "npm run mapdata && http-server --cors -p 9090"
+    "serve": "npm run mapdata && http-server --cors -c-1 -p 9090"
   },
   "standard-version": {
     "scripts": {
