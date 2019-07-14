@@ -467,6 +467,24 @@ const MAPDATA = [
     },
   },
   {
+    name: "Tallil",
+    url: "/maps/tallil/{z}_{x}_{y}.jpg",
+    heightmap: {
+      url: "/heightmaps/tallil.jpg",
+      tile: "/heightmaps/tallil/{z}_{x}_{y}.jpg",
+    },
+    extra: {
+      scale: [1, 1, 1.25],
+      levels: [3689, 4111],
+      minimap: [
+        [-2340, -2340],
+        [2340, 2340],
+      ],
+      hDim: [4081, 4081],
+      lOrigin: [-2040, -2040],
+    },
+  },
+  {
     name: "Yehorivka",
     url: "/maps/yehorivka/{z}_{x}_{y}.jpg",
     heightmap: {
