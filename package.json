@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "http-server": "^0.11.1",
-    "replace": "^1.0.0",
-    "standard-version": "^4.4.0"
+    "replace": "^1.1.1",
+    "standard-version": "^7.0.0"
   }
 }
