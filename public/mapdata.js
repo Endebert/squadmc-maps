@@ -370,8 +370,8 @@ const MAPDATA = [
     name: "Mutaha",
     url: "/maps/mutaha/{z}_{x}_{y}.jpg",
     heightmap: {
-      url: "/heightmaps/mestia.jpg",
-      tile: "/heightmaps/mestia/{z}_{x}_{y}.jpg",
+      url: "/heightmaps/mutaha.jpg",
+      tile: "/heightmaps/mutaha/{z}_{x}_{y}.jpg",
     },
     locations: [
     ],
