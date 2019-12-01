@@ -367,6 +367,26 @@ const MAPDATA = [
     },
   },
   {
+    name: "Mutaha",
+    url: "/maps/mutaha/{z}_{x}_{y}.jpg",
+    heightmap: {
+      url: "/heightmaps/mestia.jpg",
+      tile: "/heightmaps/mestia/{z}_{x}_{y}.jpg",
+    },
+    locations: [
+    ],
+    extra: {
+      scale: [1, 1, 0.3],
+      levels: [4326, 6683],
+      minimap: [
+        [-935, 1615],
+        [1820, -1140],
+      ],
+      hDim: [4081, 4081],
+      lOrigin: [-1785, -1785],
+    },
+  },
+  {
     name: "Narva",
     url: "/maps/narva/{z}_{x}_{y}.jpg",
     heightmap: {
