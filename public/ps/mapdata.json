@@ -15,6 +15,16 @@
     "bounds": [2000, 2000]
   },
   {
+    "name": "Carentan",
+    "url": "/maps/carentan/{z}_{x}_{y}.jpg",
+    "bounds": [2300,2300]
+  },
+  {
+    "name": "Dinant",
+    "url": "/maps/dinant/{z}_{x}_{y}.jpg",
+    "bounds": [2295,2295]
+  },
+  {
     "name": "Doorwerth",
     "url": "/maps/doorwerth/{z}_{x}_{y}.jpg",
     "bounds": [4036, 4036]
@@ -38,6 +48,21 @@
     "name": "Oosterbeek",
     "url": "/maps/johanna/{z}_{x}_{y}.jpg",
     "bounds": [4525, 4508]
+  },
+  {
+    "name": "St Mere Eglise",
+    "url": "/maps/stmereeglise/{z}_{x}_{y}.jpg",
+    "bounds": [3300, 3300]
+  },
+  {
+    "name": "Stonne",
+    "url": "/maps/stonne/{z}_{x}_{y}.jpg",
+    "bounds": [3300, 3300]
+  },
+  {
+    "name": "Utah",
+    "url": "/maps/utah/{z}_{x}_{y}.jpg",
+    "bounds": [3000, 3000]
   },
   {
     "name": "Veghel",
