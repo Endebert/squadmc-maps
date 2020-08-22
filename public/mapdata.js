@@ -304,6 +304,25 @@ const MAPDATA = [
     },
   },
   {
+    name: "Lashkar Valley",
+    url: "/maps/lashkar/{z}_{x}_{y}.jpg",
+    heightmap: {
+      url: "/heightmaps/lashkar.jpg",
+      tile: "/heightmaps/lashkar/{z}_{x}_{y}.jpg",
+    },
+    locations: [],
+    extra: {
+      scale: [1, 1, 1.5], // heightmap scale
+      levels: [5006, 6887], // levels in Gimp
+      minimap: [
+        [-2167, -2167], // top left corner
+        [2167, 2167], // bottom right corner
+      ],
+      hDim: [4336, 4336], // heightmap dimensions
+      lOrigin: [-2167, -2167], // top left landscape origin
+    },
+  },
+  {
     name: "Logar Valley",
     url: "/maps/logarvalley/{z}_{x}_{y}.jpg",
     heightmap: {
