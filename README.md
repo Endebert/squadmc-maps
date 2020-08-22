@@ -10,3 +10,9 @@ SquadMC works with external maps hosted on maps.squadmc.ende.pro. However, if yo
  2. `yarn run mapdata`
  3. `yarn run serve`
  4. adapt the baseUrl variable in the squadmc repository (`squadmc/src/App.vue`), to whatever `http-server` tells you
+ 
+ # Adding new maps
+ 
+ To learn how to add new maps to this repository yourself, please check out this wiki page: https://github.com/Endebert/squadmc-maps/wiki/How-to-add-new-maps-to-SquadMC
+ 
+ I'm looking forward to your contributions!
