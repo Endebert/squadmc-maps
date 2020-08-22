@@ -580,20 +580,33 @@ function extraInfo() {
       const xO = e.lOrigin[0] - Math.min(mm[0][0], mm[1][0]);
       const yO = e.lOrigin[1] - Math.min(mm[0][1], mm[1][1]);
 
+      // map info
       console.log(`${map.name}`);
       console.log(`    map dimensions: [${mmBounds}], scale: [${e.scale}]`);
-      console.log(`       final scale: ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
       console.log(`    orig heightmap: ${e.hDim[0]}x${e.hDim[1]}`);
-      // console.log(`scale heightmap:   x:${e.scale[0]} y:${e.scale[1]}`);
-      console.log(`scale heightmap to: ${Math.round(e.hDim[0] * e.scale[0])}x${Math.round(e.hDim[1] * e.scale[1])}`);
-      console.log(`set canvas size to: ${mmBounds[0]}x${mmBounds[1]}`);
-      console.log(`       with offset: ${xO}x${yO}`);
-      console.log(`     set levels to: ${e.levels[0]} <-> ${e.levels[1]}`);
 
-      if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1]) {
-        // console.log(`${e.hDim[0] * e.scale[0]} < ${mmBounds[0]} || ${e.hDim[1] * e.scale[1]} < ${mmBounds[1]}`)
-        console.warn("scaled heightmap still too small!");
+      if (e.levels) {
+        console.log(`       final scale: ${scale(e.levels[0], e.levels[1], e.scale[2])}`);
       }
+
+      // how to scale & crop heightmap in gimp
+      if (e.hDim) {
+        console.log(`scale heightmap to: ${Math.round(e.hDim[0] * e.scale[0])}x${Math.round(e.hDim[1] * e.scale[1])}`);
+        console.log(`set canvas size to: ${mmBounds[0]}x${mmBounds[1]}`);
+        console.log(`       with offset: ${xO}x${yO}`);
+
+        // warning if the heightmap is smaller than the minimap
+        if (e.hDim[0] * e.scale[0] < mmBounds[0] || e.hDim[1] * e.scale[1] < mmBounds[1]) {
+          // console.log(`${e.hDim[0] * e.scale[0]} < ${mmBounds[0]} || ${e.hDim[1] * e.scale[1]} < ${mmBounds[1]}`)
+          console.warn("scaled heightmap still too small!");
+        }
+      }
+
+      // what to set the levels to in gimp
+      if (e.levels) {
+        console.log(`     set levels to: ${e.levels[0]} <-> ${e.levels[1]}`);
+      }
+
     } else {
       console.warn(`${map.name} has no extras!`);
     }
