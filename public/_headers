@@ -5,7 +5,7 @@
 
 ## Disable cache re-validation for images  and set max age to 3 days
 /*
-  Cache-Control: public, max-age=259200
+  Cache-Control: public, max-age=259200, immutable
 
 /*
   Access-Control-Allow-Origin: *
