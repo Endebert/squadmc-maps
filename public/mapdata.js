@@ -94,6 +94,25 @@ const MAPDATA = [
 
   },
   {
+    name: "Fallujah",
+    url: "/maps/fallujah/{z}_{x}_{y}.jpg",
+    heightmap: {
+      url: "/heightmaps/fallujah.jpg",
+      tile: "/heightmaps/fallujah/{z}_{x}_{y}.jpg",
+    },
+    locations: [],
+    extra: {
+      scale: [1, 1, 1],
+      levels: [39, 440],
+      minimap: [
+        [-1315,  -1545],
+        [1690, 1460],
+      ],
+      hDim: [2806, 2806],
+      lOrigin: [-2040, -2040],
+    },
+  },
+  {
     name: "Fool's Road",
     url: "/maps/foolsroad/{z}_{x}_{y}.jpg",
     heightmap: {
